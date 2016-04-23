@@ -1,0 +1,74 @@
+<!-- BY: QUAN NGUYEN
+A simple board game to practice some javascript and html -->
+<!-- TODO: Be able to move game pieces from place to place on click -->
+
+<html>
+  <body>
+
+    <style>
+
+     table#board {
+      /*background-color: black ;*/
+     }
+
+     table#board td {
+      width: 64px ;
+      height: 64px ;
+      border: 1px solid black ;
+     }
+    </style>
+
+    <center>
+    <table id="board">
+      <script>
+      var Rows = 5 ;
+      var Cols = 5 ;
+
+      for (var i = 0; i < Rows; ++i) {
+       document.write("<tr>") ;
+       for (var j = 0; j < Cols; ++j) {
+         document.write('<td id="cell-'+i+'-'+j+'" onclick="ClickCell(this)">') ;
+         document.write("<span></span>") ;
+         document.write("</td>") ;
+       }
+       document.writeln("</tr>") ;
+      }
+      </script>
+    </table>
+    </center>
+
+    <script>
+
+    var WhiteMageStartCell = document.getElementById("cell-4-2")  ;
+    var WhiteMageImg = document.createElement("img") ;
+    WhiteMageImg.id = 'WhiteMage';
+    WhiteMageImg.src = "http://wallpaperswa.com/thumbnails/detail/20130815/final%20fantasy%208bit%20theatre%20white%20mage_wallpaperswa.com_73.jpg" ;
+    WhiteMageImg.width = 62 ;
+    WhiteMageImg.height = 62 ;
+
+    WhiteMageStartCell.appendChild(WhiteMageImg) ;
+
+
+    var BlackMageStartCell = document.getElementById("cell-0-2")  ;
+    var BlackMageImg = document.createElement("img") ;
+    BlackMageImg.id = 'BlackMage';
+    BlackMageImg.src = "http://wallpaperswa.com/thumbnails/detail/20130115/final%20fantasy%20pixelart%208bit%20theatre%20black%20mage%203200x2400%20wallpaper_wallpaperswa.com_90.jpg" ;
+    BlackMageImg.width = 62 ;
+    BlackMageImg.height = 62 ;
+
+    BlackMageStartCell.appendChild(BlackMageImg) ;
+
+    function ClickCell(cell) {
+      //cell.style.backgroundColor = "black";
+      if (cell.childNodes.length > 1) {
+        cell.style.backgroundColor = "blue";
+      }
+      // for (var i = 0; i < cell.childNodes.length; i++) {
+      //   if (childNodes[i]) {
+      //     cell.style.backgroundColor = "blue";
+      //   }
+      // }
+    }
+    </script>
+  </body>
+</html>
